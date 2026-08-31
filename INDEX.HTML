@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tana's Birthday Month ❤️</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Floating Hearts -->
+    <div id="hearts"></div>
+
+    <!-- Main Website -->
+    <main>
+      <!-- HERO SECTION -->
+
+      <section class="hero">
+        <div class="small-text">SEPTEMBER 01 — SEPTEMBER 19</div>
+
+        <h1>
+          TANA'S
+          <span>BIRTHDAY MONTH</span>
+        </h1>
+
+        <p class="subtitle">19 days. 19 surprises. One very special girl. ❤️</p>
+
+        <div class="date-card">
+          <p class="unlock-title">YOUR BIRTHDAY MONTH</p>
+
+          <h2 id="dayNumber">DAY 01</h2>
+
+          <p id="dateText">September 1</p>
+        </div>
+
+        <button class="main-button" onclick="openToday()">
+          OPEN TODAY'S SURPRISE ❤️
+        </button>
+
+        <p id="status"></p>
+      </section>
+
+      <!-- TODAY'S SURPRISE -->
+
+      <section id="surpriseSection" class="surprise-section hidden">
+        <div class="day-label">DAY <span id="currentDay">01</span> / 19</div>
+
+        <h2 id="surpriseTitle">It Begins 😏</h2>
+
+        <div id="surpriseMessage" class="message"></div>
+
+        <div id="gameArea" class="game-area"></div>
+      </section>
+
+      <!-- 19 DAYS -->
+
+      <section class="calendar">
+        <p class="section-heading">YOUR 19 DAYS</p>
+
+        <div id="daysContainer" class="days-container"></div>
+      </section>
+    </main>
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+    <audio id="tanaSong" src="pal-pal-dil-ke-pass.mp3" preload="auto"></audio>
+  </body>
+</html>
