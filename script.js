@@ -803,6 +803,15 @@ else if (day === 5) {
     startDay5Game();
 
 }
+else if (day === 6) {
+    startDay6Game();
+}
+else if (day === 7) {
+    startDay7Game();
+}
+else if (day === 8) {
+    startDay7Game();
+}
 
     
 else {
@@ -2864,4 +2873,889 @@ function startDay5Game() {
 
     showQuestion();
 
+}
+/* =====================================
+   DAY 6 — GUESS WHAT I'LL SAY?
+===================================== */
+
+function startDay6Game() {
+
+    const game = document.getElementById("gameArea");
+
+    const questions = [
+        {
+            question: "Ankit ko Tana ke saath perfect date kya lagegi? 😏❤️",
+            options: [
+                "Long Drive 🚗",
+                "Dinner ❤️",
+                "Movie Night 🍿",
+                "Random Adventure 😈"
+            ],
+            answer: 3
+        },
+
+        {
+            question: "Agar Tana aur Ankit ek poora din saath spend karein, Ankit kya prefer karega?",
+            options: [
+                "Bahar Ghoomna 🌆",
+                "Bas Saath Rehna 🫶🏻",
+                "Food + Movies 🍿",
+                "Kuch Crazy Karna 😂"
+            ],
+            answer: 3
+        },
+
+        {
+            question: "Ankit ko Tana mein sabse zyada kya attract karta hai? 👀",
+            options: [
+                "Eyes 👀",
+                "Smile 😊",
+                "Nature ❤️",
+                "EVERYTHING 😏"
+            ],
+            answer: 3
+        },
+
+        {
+            question: "Agar Tana Ankit se naraz ho jaye, Ankit kya karega? 😂",
+            options: [
+                "Sorry bolega 🥺",
+                "Manaega ❤️",
+                "Thoda Drama karega 😂",
+                "Dono karega 😭❤️"
+            ],
+            answer: 3
+        },
+
+        {
+            question: "Agar Ankit ko Tana ke saath ek memory repeat karni ho, kya choose karega? ❤️",
+            options: [
+                "First Meeting",
+                "First Date",
+                "Funny Moments 😂",
+                "The Day We Committed ❤️"
+            ],
+            answer: 3
+        },
+
+        {
+            question: "Tana ke bina Ankit kitne time tak normal reh sakta hai? 😭",
+            options: [
+                "1 Hour 😂",
+                "1 Day",
+                "1 Week",
+                "Impossible ❤️"
+            ],
+            answer: 3
+        },
+
+        {
+            question: "FINAL BOSS 😏❤️ — Ankit ko Tana ke baare mein sabse simple but strongest feeling kya hai?",
+            options: [
+                "I Like You",
+                "I Love You ❤️",
+                "I Need You",
+                "I Choose You. 🫶🏻"
+            ],
+            answer: 3
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+    let selectedAnswer = null;
+
+
+    function showQuestion() {
+
+        selectedAnswer = null;
+
+        const q = questions[currentQuestion];
+
+        game.innerHTML = `
+
+            <div style="
+                text-align:center;
+                animation:fadeIn .4s ease;
+            ">
+
+                <div style="
+                    font-size:11px;
+                    letter-spacing:3px;
+                    opacity:.5;
+                    margin-bottom:15px;
+                ">
+                    GUESS ANKIT'S ANSWER 😏
+                </div>
+
+
+                <h3 style="
+                    font-size:22px;
+                    line-height:1.5;
+                ">
+                    Question ${currentQuestion + 1} / ${questions.length}
+                </h3>
+
+
+                <p style="
+                    margin-top:25px;
+                    font-size:18px;
+                    line-height:1.7;
+                ">
+                    ${q.question}
+                </p>
+
+
+                <div id="day6Options" style="
+                    display:flex;
+                    flex-direction:column;
+                    gap:12px;
+                    margin-top:25px;
+                ">
+
+                    ${q.options.map((option, index) => `
+
+                        <button
+                            class="day6Option"
+                            data-index="${index}"
+                            style="
+                                width:100%;
+                                padding:15px 18px;
+                                border-radius:18px;
+                                border:1px solid rgba(255,255,255,.15);
+                                background:rgba(255,255,255,.06);
+                                color:white;
+                                font-family:inherit;
+                                font-size:15px;
+                                cursor:pointer;
+                                transition:.2s;
+                            "
+                        >
+                            ${option}
+                        </button>
+
+                    `).join("")}
+
+                </div>
+
+
+                <div id="day6Reveal" style="
+                    margin-top:25px;
+                    min-height:60px;
+                    line-height:1.7;
+                ">
+                </div>
+
+
+                <button
+                    id="day6Next"
+                    style="
+                        display:none;
+                        margin-top:15px;
+                        padding:13px 28px;
+                        border-radius:30px;
+                        border:1px solid rgba(255,255,255,.15);
+                        background:rgba(255,255,255,.08);
+                        color:white;
+                        cursor:pointer;
+                        font-family:inherit;
+                    "
+                >
+                    ${currentQuestion === questions.length - 1
+                        ? "SEE RESULT ❤️"
+                        : "NEXT 💕"}
+                </button>
+
+            </div>
+        `;
+
+
+        const optionButtons =
+            document.querySelectorAll(".day6Option");
+
+
+        optionButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                if (selectedAnswer !== null) return;
+
+                selectedAnswer =
+                    Number(button.dataset.index);
+
+                const actualAnswer = q.answer;
+
+                const reveal =
+                    document.getElementById("day6Reveal");
+
+                optionButtons.forEach(btn => {
+                    btn.style.opacity = ".45";
+                    btn.style.cursor = "default";
+                });
+
+
+                if (selectedAnswer === actualAnswer) {
+
+                    score++;
+
+                    button.style.opacity = "1";
+                    button.style.transform = "scale(1.03)";
+
+                    reveal.innerHTML = `
+                        <div style="
+                            font-size:28px;
+                            margin-bottom:8px;
+                        ">
+                            😏❤️
+                        </div>
+
+                        <strong>
+                            CORRECT!
+                        </strong>
+
+                        <br>
+
+                        Someone knows her Ankit pretty well. 👀
+                    `;
+
+                } else {
+
+                    button.style.opacity = "1";
+
+                    reveal.innerHTML = `
+                        <div style="
+                            font-size:28px;
+                            margin-bottom:8px;
+                        ">
+                            OHHH 😭😂
+                        </div>
+
+                        <strong>
+                            WRONG!
+                        </strong>
+
+                        <br>
+
+                        Tana really thought Ankit would choose THAT? 😭
+                    `;
+                }
+
+
+                optionButtons[actualAnswer].style.opacity = "1";
+                optionButtons[actualAnswer].style.border =
+                    "1px solid rgba(255,255,255,.45)";
+
+
+                document.getElementById("day6Next").style.display =
+                    "inline-block";
+            });
+
+        });
+
+
+        document.getElementById("day6Next")
+            .addEventListener("click", () => {
+
+                currentQuestion++;
+
+                if (currentQuestion < questions.length) {
+                    showQuestion();
+                } else {
+                    showFinal();
+                }
+
+            });
+
+    }
+
+
+    function showFinal() {
+
+        let message = "";
+
+        if (score === 7) {
+
+            message = `
+                <p>
+                    <strong>
+                        PERFECT SCORE?! 😳❤️
+                    </strong>
+                </p>
+
+                <p>
+                    Okay Tana...
+                    you actually know your Ankit. 😏
+                </p>
+            `;
+
+        } else if (score >= 4) {
+
+            message = `
+                <p>
+                    <strong>
+                        Not bad, Tana. 😏❤️
+                    </strong>
+                </p>
+
+                <p>
+                    You know me pretty well...
+                    but thoda aur practice chahiye. 😂
+                </p>
+            `;
+
+        } else {
+
+            message = `
+                <p>
+                    <strong>
+                        TANA 😭😂
+                    </strong>
+                </p>
+
+                <p>
+                    Itna time saath rehne ke baad
+                    bhi Ankit ko nahi pehchana? 😭
+                </p>
+            `;
+        }
+
+
+        game.innerHTML = `
+
+            <div style="
+                text-align:center;
+                line-height:1.9;
+            ">
+
+                <div style="
+                    font-size:60px;
+                    margin-bottom:15px;
+                ">
+                    💘
+                </div>
+
+
+                <h3 style="
+                    font-size:30px;
+                ">
+                    Game Over!
+                </h3>
+
+
+                <p style="
+                    margin-top:20px;
+                    font-size:18px;
+                ">
+                    You scored
+                </p>
+
+
+                <h2 style="
+                    font-size:38px;
+                    margin:5px 0;
+                ">
+                    ${score} / ${questions.length}
+                </h2>
+
+
+                ${message}
+
+
+                <div style="
+                    margin-top:30px;
+                    padding:20px;
+                    border-radius:20px;
+                    background:rgba(255,255,255,.05);
+                ">
+
+                    <p>
+                        But there's one thing
+                        you don't have to guess... ❤️
+                    </p>
+
+                    <h3>
+                        I CHOOSE YOU.
+                        <br>
+                        EVERY TIME. 🫶🏻
+                    </h3>
+
+                </div>
+
+
+                <p style="
+                    opacity:.55;
+                    margin-top:25px;
+                ">
+                    — Ankit ❤️
+                </p>
+
+            </div>
+        `;
+    }
+
+
+    showQuestion();
+}
+/* =====================================
+   DAY 7 — TOUGH RELATIONSHIP QUESTIONS ❤️
+===================================== */
+
+let day7Question = 0;
+
+const day7Questions = [
+
+    "If we never met, what do you think your life would look like right now? 👀",
+
+    "What's one thing about our relationship that you overthink but have never told me? ❤️",
+
+    "If you could change ONE thing about me without me getting offended, what would it be? 😭",
+
+    "If we had a huge fight and neither of us was ready to say sorry... who would break first? 👀",
+
+    "Be brutally honest: what is one thing you are scared could ever happen to 'us'? ❤️‍🩹"
+
+];
+
+
+function startDay7Game() {
+
+    day7Question = 0;
+
+    showDay7Question();
+
+}
+
+
+function showDay7Question() {
+
+    const game =
+        document.getElementById("gameArea");
+
+    const question =
+        day7Questions[day7Question];
+
+
+    game.innerHTML = `
+
+        <div style="
+            font-size:10px;
+            letter-spacing:3px;
+            opacity:.5;
+            margin-bottom:15px;
+        ">
+            NO LYING TO ANKIT 😏
+        </div>
+
+
+        <h3 style="
+            font-size:22px;
+            line-height:1.6;
+        ">
+
+            QUESTION
+            ${day7Question + 1}
+            / ${day7Questions.length}
+
+        </h3>
+
+
+        <p style="
+            margin-top:25px;
+            font-size:18px;
+            line-height:1.7;
+        ">
+
+            ${question}
+
+        </p>
+
+
+        <textarea
+            id="day7Answer"
+            placeholder="Type your honest answer here... ❤️"
+            style="
+                width:100%;
+                min-height:130px;
+                margin-top:25px;
+                padding:16px;
+                box-sizing:border-box;
+                border-radius:18px;
+                border:1px solid rgba(255,255,255,.15);
+                background:rgba(255,255,255,.05);
+                color:white;
+                font-family:inherit;
+                font-size:15px;
+                resize:vertical;
+                outline:none;
+            "
+        ></textarea>
+
+
+        <button
+            onclick="nextDay7Question()"
+            style="
+                margin-top:20px;
+                padding:14px 28px;
+                border:none;
+                border-radius:30px;
+                background:rgba(255,255,255,.1);
+                color:white;
+                cursor:pointer;
+                font-family:inherit;
+                font-size:14px;
+            "
+        >
+            ${
+                day7Question === day7Questions.length - 1
+                ? "FINISH ❤️"
+                : "NEXT →"
+            }
+        </button>
+
+
+        <p
+            id="day7Message"
+            style="
+                margin-top:15px;
+                min-height:25px;
+                color:#ffb6c1;
+            "
+        ></p>
+
+    `;
+
+}
+
+
+function nextDay7Question() {
+
+    const answer =
+        document.getElementById("day7Answer");
+
+    const message =
+        document.getElementById("day7Message");
+
+
+    if (!answer.value.trim()) {
+
+        message.innerHTML =
+            "Tanaaa... answer toh do 😭❤️";
+
+        answer.focus();
+
+        return;
+
+    }
+
+
+    if (
+        day7Question <
+        day7Questions.length - 1
+    ) {
+
+        day7Question++;
+
+        showDay7Question();
+
+    }
+
+    else {
+
+        finishDay7();
+
+    }
+
+}
+
+
+function finishDay7() {
+
+    const game =
+        document.getElementById("gameArea");
+
+
+    game.innerHTML = `
+
+        <div style="
+            font-size:55px;
+            margin-bottom:20px;
+        ">
+            ❤️
+        </div>
+
+
+        <h3 style="
+            font-size:28px;
+        ">
+            OKAY TANA... 😭❤️
+        </h3>
+
+
+        <p style="
+            margin-top:25px;
+            line-height:2;
+            font-size:16px;
+        ">
+
+            You survived all 5 questions. 😂
+
+            <br><br>
+
+            And remember...
+
+            <br><br>
+
+            <strong>
+                NO LYING TO ANKIT. 😏
+            </strong>
+
+            <br><br>
+
+            I don't need perfect answers.
+
+            <br>
+
+            I just want to know
+            what's really inside
+            that little heart of yours. ❤️
+
+            <br><br>
+
+            <strong>
+                Whatever your answers are...
+                I'm still here. ❤️
+            </strong>
+
+        </p>
+
+
+        <div style="
+            margin-top:30px;
+            font-size:11px;
+            letter-spacing:2px;
+            opacity:.45;
+        ">
+            DAY 07 COMPLETE ❤️
+        </div>
+
+    `;
+
+}
+/* =====================================
+   DAY 8 — CATCH MY HEART ❤️
+===================================== */
+
+function startDay8Game() {
+
+    const game = document.getElementById("gameArea");
+
+    let heartsCaught = 0;
+    const totalHearts = 10;
+
+    game.innerHTML = `
+
+        <div style="text-align:center;">
+
+            <div style="
+                font-size:11px;
+                letter-spacing:3px;
+                opacity:.5;
+                margin-bottom:15px;
+            ">
+                CATCH MY HEART ❤️
+            </div>
+
+            <h3 style="
+                font-size:25px;
+                line-height:1.5;
+            ">
+                Catch my hearts, Tana 😏❤️
+            </h3>
+
+            <p style="
+                margin-top:15px;
+                opacity:.7;
+            ">
+                Tap the heart before it moves! 😂
+            </p>
+
+            <p style="
+                margin-top:10px;
+                font-size:16px;
+            ">
+                Hearts caught:
+                <strong>
+                    <span id="heartCount">0</span> / ${totalHearts}
+                </strong>
+            </p>
+
+
+            <div
+                id="heartGame8"
+                style="
+                    position:relative;
+                    height:260px;
+                    margin-top:25px;
+                    border-radius:25px;
+                    background:rgba(255,255,255,.04);
+                    border:1px solid rgba(255,255,255,.08);
+                    overflow:hidden;
+                "
+            >
+
+                <button
+                    id="movingHeart8"
+                    style="
+                        position:absolute;
+                        left:45%;
+                        top:40%;
+                        border:none;
+                        background:none;
+                        font-size:45px;
+                        cursor:pointer;
+                        transition:.2s;
+                        user-select:none;
+                    "
+                >
+                    ❤️
+                </button>
+
+            </div>
+
+
+            <p
+                id="heartResult8"
+                style="
+                    margin-top:20px;
+                    line-height:1.8;
+                    min-height:50px;
+                "
+            >
+            </p>
+
+        </div>
+    `;
+
+
+    const heart =
+        document.getElementById("movingHeart8");
+
+    const area =
+        document.getElementById("heartGame8");
+
+    const count =
+        document.getElementById("heartCount");
+
+    const result =
+        document.getElementById("heartResult8");
+
+
+    function moveHeart() {
+
+        if (heartsCaught >= totalHearts) return;
+
+        const areaWidth = area.clientWidth;
+        const areaHeight = area.clientHeight;
+
+        const heartSize = 55;
+
+        const maxX =
+            Math.max(0, areaWidth - heartSize);
+
+        const maxY =
+            Math.max(0, areaHeight - heartSize);
+
+        const randomX =
+            Math.floor(Math.random() * maxX);
+
+        const randomY =
+            Math.floor(Math.random() * maxY);
+
+        heart.style.left =
+            randomX + "px";
+
+        heart.style.top =
+            randomY + "px";
+    }
+
+
+    heart.addEventListener("click", () => {
+
+        heartsCaught++;
+
+        count.textContent =
+            heartsCaught;
+
+
+        if (heartsCaught < totalHearts) {
+
+            const messages = [
+                "Gotcha! 😏❤️",
+                "Too slow, Tana 😂",
+                "One more! 👀❤️",
+                "You're getting good 😌",
+                "Don't let my heart escape! 😂",
+                "Almost there ❤️",
+                "Okayyy... impressive 😏",
+                "My heart seems to like you ❤️",
+                "Last one! 👀",
+            ];
+
+            result.textContent =
+                messages[
+                    Math.min(
+                        heartsCaught - 1,
+                        messages.length - 1
+                    )
+                ];
+
+            moveHeart();
+
+        } else {
+
+            heart.style.display =
+                "none";
+
+            result.innerHTML = `
+
+                <div style="
+                    font-size:35px;
+                    margin-bottom:10px;
+                ">
+                    💘
+                </div>
+
+                <strong style="
+                    font-size:20px;
+                ">
+                    YOU CAUGHT THEM ALL! 😳❤️
+                </strong>
+
+                <br><br>
+
+                You caught 10 hearts...
+
+                <br>
+
+                but I only have one. ❤️
+
+                <br><br>
+
+                <strong>
+                    And it's already yours. 🫶🏻
+                </strong>
+
+                <br><br>
+
+                <span style="opacity:.6;">
+                    — Ankit ❤️
+                </span>
+            `;
+        }
+
+    });
+
+
+    // First position
+    moveHeart();
 }
