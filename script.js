@@ -810,7 +810,19 @@ else if (day === 7) {
     startDay7Game();
 }
 else if (day === 8) {
-    startDay7Game();
+    startDay8Game();
+}
+else if (day === 9) {
+    startDay9Game();
+}
+else if (day === 10) {
+    startDay10Game();
+}
+else if (day === 11) {
+    startDay11Game();
+}
+else if (day === 12) {
+    startDay12Game();
 }
 
     
@@ -3758,4 +3770,754 @@ function startDay8Game() {
 
     // First position
     moveHeart();
+}
+function startDay9Game() {
+
+    const gameArea = document.getElementById("gameArea");
+
+    gameArea.innerHTML = `
+        <div class="day9-container">
+
+            <h1>💌 DAY 9</h1>
+
+            <p class="day9-intro">
+                I have something for you... ❤️
+            </p>
+
+            <p class="day9-subtitle">
+                Choose an envelope and open it 👀
+            </p>
+
+            <div class="envelopes">
+
+                <div class="envelope" onclick="openEnvelope(1)">
+                    <div class="emoji">💌</div>
+                    <h3>Open when...</h3>
+                    <p>you miss me 🥺</p>
+                </div>
+
+                <div class="envelope" onclick="openEnvelope(2)">
+                    <div class="emoji">💌</div>
+                    <h3>Open when...</h3>
+                    <p>you're angry with me 😤</p>
+                </div>
+
+                <div class="envelope" onclick="openEnvelope(3)">
+                    <div class="emoji">💌</div>
+                    <h3>Open when...</h3>
+                    <p>you need a smile 😊</p>
+                </div>
+
+                <div class="envelope" onclick="openEnvelope(4)">
+                    <div class="emoji">💌</div>
+                    <h3>Open when...</h3>
+                    <p>you love me extra ❤️</p>
+                </div>
+
+            </div>
+
+            <div id="day9Message"></div>
+
+        </div>
+    `;
+}
+
+
+function openEnvelope(number) {
+
+    const messageBox = document.getElementById("day9Message");
+
+    let message = "";
+
+    if (number === 1) {
+
+        message = `
+            <div class="letter">
+                <div class="big-heart">❤️</div>
+
+                <h2>Missing Me? 🥺</h2>
+
+                <p>
+                    Agar tum mujhe miss kar rahi ho...
+                    toh bas ek baat yaad rakhna.
+                </p>
+
+                <p>
+                    Somewhere, somehow...
+                    there is a stupid boy who is probably
+                    missing you even more. ❤️
+                </p>
+
+                <p class="signature">
+                    — Your Ankit ❤️
+                </p>
+            </div>
+        `;
+
+    } else if (number === 2) {
+
+        message = `
+            <div class="letter">
+
+                <div class="big-heart">😤❤️</div>
+
+                <h2>Angry With Me?</h2>
+
+                <p>
+                    Okay okay... meri galti hogi. 😂
+                </p>
+
+                <p>
+                    But please zyada der tak gussa mat rehna...
+                    mujhe tumhara smile zyada pasand hai. 🥺❤️
+                </p>
+
+                <p>
+                    Ab ek chhota sa smile kar do...
+                    warna mujhe personally aake manana padega. 😏
+                </p>
+
+                <p class="signature">
+                    — Sorry in advance 😂❤️
+                </p>
+
+            </div>
+        `;
+
+    } else if (number === 3) {
+
+        message = `
+            <div class="letter">
+
+                <div class="big-heart">😊❤️</div>
+
+                <h2>Need A Smile?</h2>
+
+                <p>
+                    STOP. 🛑
+                </p>
+
+                <p>
+                    Abhi ke abhi smile karo. 😌
+                </p>
+
+                <p>
+                    Because somewhere there is someone
+                    who thinks your smile is the prettiest thing
+                    in this entire world. ❤️
+                </p>
+
+                <p>
+                    And yes...
+                    that someone is me. 😏
+                </p>
+
+                <p class="signature">
+                    Smile please, Tana ❤️
+                </p>
+
+            </div>
+        `;
+
+    } else if (number === 4) {
+
+        message = `
+            <div class="letter">
+
+                <div class="big-heart">😍❤️</div>
+
+                <h2>Loving Me Extra Today? 👀</h2>
+
+                <p>
+                    Hmm... I knew it. 😏
+                </p>
+
+                <p>
+                    But here's the problem...
+                </p>
+
+                <p>
+                    I don't think I can ever love you
+                    just a little. ❤️
+                </p>
+
+                <p>
+                    It's always going to be
+                    <strong>MORE.</strong>
+                </p>
+
+                <p>
+                    More love.  
+                    More memories.  
+                    More madness.  
+                    More YOU. ❤️
+                </p>
+
+                <p class="signature">
+                    Forever your Ankit ❤️
+                </p>
+
+            </div>
+        `;
+    }
+
+    messageBox.innerHTML = message;
+
+    messageBox.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+function startDay10Game() {
+
+    const gameArea = document.getElementById("gameArea");
+
+    gameArea.innerHTML = `
+        <div class="day10-container">
+
+            <h1>❤️ DAY 10 ❤️</h1>
+
+            <p class="day10-intro">
+                Some things are meant to stay connected...
+            </p>
+
+            <p class="day10-subtitle">
+                Unlock all three knots. 🧵❤️
+            </p>
+
+            <div class="knots">
+
+                <button class="knot locked" id="knot1" onclick="openKnot(1)">
+                    <span>🧵</span>
+                    <strong>KNOT 1</strong>
+                    <small>One Day, Forever Together ❤️</small>
+                </button>
+
+                <button class="knot locked" id="knot2" onclick="openKnot(2)">
+                    <span>🧵</span>
+                    <strong>KNOT 2</strong>
+                    <small>The Promise ❤️</small>
+                </button>
+
+                <button class="knot locked" id="knot3" onclick="openKnot(3)">
+                    <span>🧵</span>
+                    <strong>KNOT 3</strong>
+                    <small>Why Tana? ❤️</small>
+                </button>
+
+            </div>
+
+            <div id="day10Message"></div>
+
+            <div id="finalKnot" class="final-knot"></div>
+
+        </div>
+    `;
+
+    // First knot starts unlocked
+    document.getElementById("knot1").classList.remove("locked");
+}
+
+
+let day10Opened = [false, false, false];
+
+
+function openKnot(number) {
+
+    const knot = document.getElementById("knot" + number);
+
+    if (knot.classList.contains("locked")) {
+        return;
+    }
+
+    day10Opened[number - 1] = true;
+
+    knot.classList.add("opened");
+
+    const messageBox = document.getElementById("day10Message");
+
+    let message = "";
+
+    if (number === 1) {
+
+        message = `
+            <div class="day10-letter">
+
+                <div class="knot-icon">🧵❤️</div>
+
+                <h2>One Day, Forever Together</h2>
+
+                <p>
+                    Abhi shayad humare beech distance hai... 🥺❤️
+                </p>
+
+                <p>
+                    Kabhi-kabhi lagta hai kaash ye distance khatam ho jaaye,
+                    aur ek din aisa aaye jab humein milne ke liye
+                    kisi date ya occasion ka wait na karna pade.
+                </p>
+
+                <p>
+                    Bas tum ho, main hoon...
+                    aur humare paas ek doosre ke liye poora time ho. ❤️
+                </p>
+
+                <p>
+                    Ek din... ye long distance nahi rahega.
+                    Ek din hum ek hi jagah honge,
+                    ek hi ghar ki chhoti-chhoti fights hongi,
+                    saath mein hasi hogi,
+                    aur saath mein bahut saari memories banengi. 🥹❤️
+                </p>
+
+                <p class="highlight">
+                    One day, not long distance...
+                    <br>
+                    just forever together. ❤️
+                </p>
+
+            </div>
+        `;
+
+        // Unlock knot 2
+        document.getElementById("knot2").classList.remove("locked");
+
+    }
+
+
+    else if (number === 2) {
+
+        message = `
+            <div class="day10-letter">
+
+                <div class="knot-icon">💍❤️</div>
+
+                <h2>The Promise</h2>
+
+                <p>
+                    Shayad abhi ye sirf ek promise hai...
+                    but one day, I'll make it real. ❤️
+                </p>
+
+                <p>
+                    Ek din main ghutno pe baithunga...
+                    aur duniya ke saamne tumse kahunga —
+                </p>
+
+                <p class="highlight">
+                    "Make me yours. ❤️"
+                </p>
+
+                <p>
+                    Aur uss din mujhe kisi aur cheez ki zarurat nahi hogi...
+                    bas tumhara haath mere haath mein chahiye. 🥹❤️
+                </p>
+
+            </div>
+        `;
+
+        // Unlock knot 3
+        document.getElementById("knot3").classList.remove("locked");
+
+    }
+
+
+    else if (number === 3) {
+
+        message = `
+            <div class="day10-letter">
+
+                <div class="knot-icon">❤️</div>
+
+                <h2>Why Tana?</h2>
+
+                <p>
+                    Because it's not one thing.
+                </p>
+
+                <p>
+                    It's your smile. ❤️
+                    <br>
+                    Your madness. 😂
+                    <br>
+                    Your cute little things. 🥹
+                    <br>
+                    Your presence. ❤️
+                    <br>
+                    Your everything.
+                </p>
+
+                <p class="highlight">
+                    Basically... YOU. ❤️
+                </p>
+
+            </div>
+        `;
+    }
+
+
+    messageBox.innerHTML = message;
+
+    messageBox.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+
+    // Check if all 3 knots are opened
+    if (
+        day10Opened[0] &&
+        day10Opened[1] &&
+        day10Opened[2]
+    ) {
+
+        setTimeout(showDay10Final, 1000);
+
+    }
+}
+
+
+function showDay10Final() {
+
+    const finalBox = document.getElementById("finalKnot");
+
+    finalBox.innerHTML = `
+        <div class="final-heart-animation">
+
+            <div class="thread-line">
+                🧵 ───────── ❤️ ───────── 🧵
+            </div>
+
+            <div class="big-final-heart">
+                ❤️
+            </div>
+
+            <h2>All Three Knots Connected ❤️</h2>
+
+            <p>
+                Some people meet by chance.
+            </p>
+
+            <p>
+                Some stories happen by chance.
+            </p>
+
+            <p>
+                But if I had to choose again...
+            </p>
+
+            <p class="final-text">
+                I'd still choose you. ❤️
+            </p>
+
+            <p class="forever">
+                One day...
+                <br>
+                Forever together. ❤️
+            </p>
+
+        </div>
+    `;
+
+    finalBox.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+function startDay11Game() {
+
+    const gameArea = document.getElementById("gameArea");
+
+    gameArea.innerHTML = `
+        <div class="day11-container">
+
+            <h1>💖 DAY 11 💖</h1>
+
+            <p class="day11-intro">
+                Today, you get to decide...
+            </p>
+
+            <p class="day11-subtitle">
+                If one whole day was just ours,
+                how would you spend it? 🥰
+            </p>
+
+            <div id="day11Step"></div>
+
+        </div>
+    `;
+
+    day11Data = {
+        morning: "",
+        afternoon: "",
+        evening: "",
+        night: ""
+    };
+
+    showDay11Step("morning");
+}
+
+
+let day11Data = {
+    morning: "",
+    afternoon: "",
+    evening: "",
+    night: ""
+};
+
+
+function showDay11Step(step) {
+
+    const box = document.getElementById("day11Step");
+
+    let title = "";
+    let emoji = "";
+    let options = [];
+
+    if (step === "morning") {
+
+        title = "🌅 Step 1 — Morning";
+        emoji = "☀️";
+
+        options = [
+            "☕ Lazy morning together",
+            "🌅 Watch the sunrise",
+            "😴 Sleep a little longer 😂"
+        ];
+
+    } else if (step === "afternoon") {
+
+        title = "☀️ Step 2 — Afternoon";
+        emoji = "🍕";
+
+        options = [
+            "🍕 Food + endless bakchodi",
+            "🚗 Go for a long drive",
+            "🎬 Just chill together"
+        ];
+
+    } else if (step === "evening") {
+
+        title = "🌆 Step 3 — Evening";
+        emoji = "🌅";
+
+        options = [
+            "🌅 Watch the sunset",
+            "🌃 Explore city lights",
+            "🌳 Go for a long walk"
+        ];
+
+    } else if (step === "night") {
+
+        title = "🌙 Step 4 — Night";
+        emoji = "🌙";
+
+        options = [
+            "⭐ Rooftop + stars",
+            "🚗 Midnight drive",
+            "❤️ Sit together and talk"
+        ];
+    }
+
+
+    let html = `
+        <div class="day11-question">
+
+            <div class="day11-big-emoji">
+                ${emoji}
+            </div>
+
+            <h2>${title}</h2>
+
+            <p>
+                Choose one ❤️
+            </p>
+
+            <div class="day11-options">
+    `;
+
+
+    options.forEach(function(option, index) {
+
+        html += `
+            <button
+                class="day11-option"
+                onclick="selectDay11('${step}', '${option.replace(/'/g, "\\'")}')"
+            >
+                ${option}
+            </button>
+        `;
+
+    });
+
+
+    html += `
+            </div>
+
+        </div>
+    `;
+
+
+    box.innerHTML = html;
+}
+
+
+function selectDay11(step, answer) {
+
+    day11Data[step] = answer;
+
+    const box = document.getElementById("day11Step");
+
+    box.innerHTML = `
+        <div class="day11-selected">
+
+            <div class="selected-heart">
+                ❤️
+            </div>
+
+            <h2>Good choice 😏</h2>
+
+            <p>
+                You chose:
+            </p>
+
+            <div class="chosen-option">
+                ${answer}
+            </div>
+
+            <button
+                class="day11-next"
+                onclick="nextDay11('${step}')"
+            >
+                NEXT ❤️
+            </button>
+
+        </div>
+    `;
+}
+
+
+function nextDay11(step) {
+
+    if (step === "morning") {
+
+        showDay11Step("afternoon");
+
+    } else if (step === "afternoon") {
+
+        showDay11Step("evening");
+
+    } else if (step === "evening") {
+
+        showDay11Step("night");
+
+    } else if (step === "night") {
+
+        showDay11Final();
+    }
+}
+
+
+function showDay11Final() {
+
+    const box = document.getElementById("day11Step");
+
+    box.innerHTML = `
+        <div class="day11-final">
+
+            <div class="final-sun">
+                ☀️
+            </div>
+
+            <h2>OUR PERFECT DAY ❤️</h2>
+
+            <div class="perfect-day">
+
+                <div>
+                    <span>🌅 Morning</span>
+                    <p>${day11Data.morning}</p>
+                </div>
+
+                <div>
+                    <span>☀️ Afternoon</span>
+                    <p>${day11Data.afternoon}</p>
+                </div>
+
+                <div>
+                    <span>🌆 Evening</span>
+                    <p>${day11Data.evening}</p>
+                </div>
+
+                <div>
+                    <span>🌙 Night</span>
+                    <p>${day11Data.night}</p>
+                </div>
+
+            </div>
+
+
+            <div class="day11-message">
+
+                <p>
+                    But honestly...
+                </p>
+
+                <p class="big-line">
+                    I don't care what we do. ❤️
+                </p>
+
+                <p>
+                    If you're there,
+                    <br>
+                    that's already my perfect day.
+                </p>
+
+                <div class="huge-heart">
+                    ❤️
+                </div>
+
+                <p class="signature">
+                    — Your Ankit ❤️
+                </p>
+
+            </div>
+
+
+            <button
+                class="day11-finish"
+                onclick="finishDay11()"
+            >
+                DAY 11 COMPLETE ❤️
+            </button>
+
+        </div>
+    `;
+
+    box.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+
+function finishDay11() {
+
+    const box = document.getElementById("day11Step");
+
+    box.innerHTML += `
+        <div class="day11-complete">
+
+            <h2>🥹❤️</h2>
+
+            <p>
+                One perfect day saved...
+            </p>
+
+            <p>
+                Now imagine having
+                <strong>forever</strong> of them.
+            </p>
+
+        </div>
+    `;
 }
