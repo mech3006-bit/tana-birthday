@@ -589,3 +589,605 @@ h1 span {
     }
 
 }
+/* =========================
+   DAY 10
+========================= */
+
+.day10-container {
+    text-align: center;
+    padding: 25px 15px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.day10-container h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.day10-intro {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.day10-subtitle {
+    font-size: 17px;
+    opacity: 0.8;
+    margin-bottom: 35px;
+}
+
+
+/* KNOTS */
+
+.knots {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.knot {
+    width: 220px;
+    min-height: 150px;
+    border: none;
+    border-radius: 25px;
+    padding: 20px;
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    transition: all 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.knot:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+.knot span {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.knot strong {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.knot small {
+    font-size: 14px;
+}
+
+.knot.locked {
+    opacity: 0.45;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+.knot.locked:hover {
+    transform: none;
+}
+
+.knot.opened {
+    transform: scale(1.02);
+}
+
+
+/* MESSAGE */
+
+.day10-letter {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 30px 25px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 25px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+
+    animation: day10Open 0.6s ease;
+}
+
+.knot-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.day10-letter h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.day10-letter p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+.highlight {
+    font-size: 21px !important;
+    font-weight: bold;
+    margin-top: 25px !important;
+}
+
+
+/* FINAL */
+
+.final-knot {
+    margin-top: 30px;
+}
+
+.final-heart-animation {
+    padding: 35px 20px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 30px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+
+    animation: finalReveal 1s ease;
+}
+
+.thread-line {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.big-final-heart {
+    font-size: 100px;
+
+    animation: heartbeat 1.2s infinite;
+}
+
+.final-heart-animation h2 {
+    font-size: 27px;
+    margin: 15px 0 25px;
+}
+
+.final-heart-animation p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.final-text {
+    font-size: 26px !important;
+    font-weight: bold;
+}
+
+.forever {
+    font-size: 23px !important;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes day10Open {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes finalReveal {
+
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.15);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .day10-container h1 {
+        font-size: 32px;
+    }
+
+    .day10-intro {
+        font-size: 19px;
+    }
+
+    .knots {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .knot {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .day10-letter {
+        padding: 25px 18px;
+    }
+
+    .day10-letter h2 {
+        font-size: 24px;
+    }
+
+    .day10-letter p {
+        font-size: 16px;
+    }
+
+    .big-final-heart {
+        font-size: 80px;
+    }
+}
+/* =========================
+   DAY 11
+========================= */
+
+.day11-container {
+    text-align: center;
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px;
+}
+
+.day11-container h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.day11-intro {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.day11-subtitle {
+    font-size: 17px;
+    opacity: 0.8;
+    margin-bottom: 35px;
+}
+
+
+/* QUESTION */
+
+.day11-question {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px 20px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 28px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+    animation: day11Appear 0.5s ease;
+}
+
+.day11-big-emoji {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.day11-question h2 {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.day11-question p {
+    font-size: 17px;
+}
+
+
+/* OPTIONS */
+
+.day11-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.day11-option {
+    padding: 17px 20px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+
+    transition: 0.3s;
+}
+
+.day11-option:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+
+/* SELECTED */
+
+.day11-selected {
+    max-width: 600px;
+    margin: auto;
+
+    padding: 30px 20px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 28px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+
+    animation: day11Appear 0.5s ease;
+}
+
+.selected-heart {
+    font-size: 55px;
+}
+
+.day11-selected h2 {
+    font-size: 27px;
+}
+
+.chosen-option {
+    margin: 20px 0;
+    padding: 15px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.day11-next,
+.day11-finish {
+    border: none;
+    border-radius: 20px;
+
+    padding: 14px 28px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.day11-next:hover,
+.day11-finish:hover {
+    transform: scale(1.05);
+}
+
+
+/* FINAL */
+
+.day11-final {
+    max-width: 700px;
+    margin: auto;
+
+    padding: 30px 20px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-radius: 30px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+
+    animation: day11Final 0.8s ease;
+}
+
+.final-sun {
+    font-size: 60px;
+}
+
+.day11-final h2 {
+    font-size: 30px;
+    margin: 15px 0 25px;
+}
+
+
+/* PERFECT DAY */
+
+.perfect-day {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.perfect-day > div {
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+.perfect-day span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.perfect-day p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* MESSAGE */
+
+.day11-message {
+    margin-top: 30px;
+    padding: 25px 15px;
+}
+
+.day11-message p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.big-line {
+    font-size: 25px !important;
+    font-weight: bold;
+}
+
+.huge-heart {
+    font-size: 85px;
+    margin: 15px;
+
+    animation: day11Heart 1.2s infinite;
+}
+
+.signature {
+    font-weight: bold;
+}
+
+
+/* COMPLETE */
+
+.day11-complete {
+    margin-top: 30px;
+
+    padding: 20px;
+
+    animation: day11Appear 0.7s ease;
+}
+
+.day11-complete h2 {
+    font-size: 35px;
+}
+
+.day11-complete p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes day11Appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes day11Final {
+
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes day11Heart {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .day11-container h1 {
+        font-size: 32px;
+    }
+
+    .day11-intro {
+        font-size: 19px;
+    }
+
+    .perfect-day {
+        grid-template-columns: 1fr;
+    }
+
+    .day11-question h2 {
+        font-size: 23px;
+    }
+
+    .day11-option {
+        font-size: 16px;
+    }
+
+    .day11-final h2 {
+        font-size: 25px;
+    }
+
+    .huge-heart {
+        font-size: 70px;
+    }
+}
