@@ -13,7 +13,7 @@
 
 // true = testing mode
 // false = real September dates
-const TEST_MODE = false;
+const TEST_MODE = true;
 
 // Testing ke liye yahan day number change karo:
 // 1 = September 1
@@ -21,7 +21,7 @@ const TEST_MODE = false;
 // ...
 // 19 = September 19
 
-const TEST_DAY = 1;
+const TEST_DAY = 10;
 
 const START_DATE =
     new Date("2026-09-01T00:00:00+05:30");
@@ -823,6 +823,9 @@ else if (day === 11) {
 }
 else if (day === 12) {
     startDay12Game();
+}
+else if (day === 13) {
+    startDay13Game();
 }
 
     
@@ -4518,6 +4521,527 @@ function finishDay11() {
                 <strong>forever</strong> of them.
             </p>
 
+        </div>
+    `;
+}
+function startDay12Game() {
+
+    const gameArea = document.getElementById("gameArea");
+
+    gameArea.innerHTML = `
+        <div class="day12-container">
+
+            <h1>🎁 DAY 12 ❤️</h1>
+
+            <p class="day12-intro">
+                Aaj tumhe kuch diya nahi jayega...
+            </p>
+
+            <p class="day12-subtitle">
+                Tumhe khud discover karna padega. 👀❤️
+            </p>
+
+            <div class="mystery-box" id="mysteryBox">
+                🎁
+            </div>
+
+            <p class="box-text">
+                There is something waiting inside...
+            </p>
+
+            <div class="day12-locks">
+
+                <button id="lock1"
+                    class="day12-lock"
+                    onclick="openDay12Lock(1)">
+                    🔐<br>
+                    <span>LOCK 1</span>
+                </button>
+
+                <button id="lock2"
+                    class="day12-lock locked"
+                    onclick="openDay12Lock(2)">
+                    🔐<br>
+                    <span>LOCK 2</span>
+                </button>
+
+                <button id="lock3"
+                    class="day12-lock locked"
+                    onclick="openDay12Lock(3)">
+                    🔐<br>
+                    <span>LOCK 3</span>
+                </button>
+
+            </div>
+
+            <div id="day12Message"></div>
+
+        </div>
+    `;
+}
+
+
+let day12Locks = [false, false, false];
+
+
+function openDay12Lock(number) {
+
+    const lock = document.getElementById("lock" + number);
+
+    if (lock.classList.contains("locked")) {
+        return;
+    }
+
+    day12Locks[number - 1] = true;
+
+    lock.classList.add("opened");
+
+    let message = "";
+
+    if (number === 1) {
+
+        message = `
+            <div class="day12-clue">
+
+                <div class="clue-icon">❤️</div>
+
+                <h2>First Clue</h2>
+
+                <p>
+                    I am something you can never see,
+                    but you can always feel. ❤️
+                </p>
+
+                <p class="clue-hint">
+                    Maybe you've already felt it...
+                    between us. 🥹
+                </p>
+
+            </div>
+        `;
+
+        document.getElementById("lock2")
+            .classList.remove("locked");
+
+    }
+
+
+    else if (number === 2) {
+
+        message = `
+            <div class="day12-clue">
+
+                <div class="clue-icon">💗</div>
+
+                <h2>Second Clue</h2>
+
+                <p>
+                    I become stronger every time
+                    you choose each other. ❤️
+                </p>
+
+                <p class="clue-hint">
+                    Distance can't break it...
+                    choosing each other makes it stronger. 🥹
+                </p>
+
+            </div>
+        `;
+
+        document.getElementById("lock3")
+            .classList.remove("locked");
+
+    }
+
+
+    else if (number === 3) {
+
+        message = `
+            <div class="day12-clue">
+
+                <div class="clue-icon">🥹❤️</div>
+
+                <h2>Last Clue</h2>
+
+                <p>
+                    I started with two people,
+                    but I hope I last forever.
+                </p>
+
+                <p class="clue-hint">
+                    You probably know the answer now... 👀
+                </p>
+
+                <button
+                    class="open-box-btn"
+                    onclick="openDay12Box()">
+                    OPEN THE BOX 🎁
+                </button>
+
+            </div>
+        `;
+    }
+
+
+    document.getElementById("day12Message").innerHTML = message;
+
+    document.getElementById("day12Message")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+}
+
+
+function openDay12Box() {
+
+    const box = document.getElementById("mysteryBox");
+
+    box.classList.add("box-open");
+
+    setTimeout(function () {
+
+        box.innerHTML = "❤️";
+
+        document.getElementById("day12Message").innerHTML = `
+
+            <div class="day12-final">
+
+                <div class="final-sparkle">
+                    ✨ ❤️ ✨
+                </div>
+
+                <h2>SURPRISE! 🎁</h2>
+
+                <p class="answer">
+                    The answer was...
+                </p>
+
+                <h1>US. ❤️</h1>
+
+                <p>
+                    Not a place.
+                    <br>
+                    Not a thing.
+                    <br>
+                    Not a moment.
+                </p>
+
+                <p class="strong-line">
+                    US. ❤️
+                </p>
+
+                <p>
+                    And if I could ask for just one thing...
+                </p>
+
+                <p>
+                    I would choose a lifetime
+                    of discovering new moments with you.
+                    🥹❤️
+                </p>
+
+                <div class="forever-text">
+                    YOU + ME
+                    <br>
+                    <span>FOREVER. ❤️</span>
+                </div>
+
+                <button
+                    class="complete-day12"
+                    onclick="completeDay12()">
+                    DAY 12 COMPLETE ❤️
+                </button>
+
+            </div>
+        `;
+
+        document.getElementById("day12Message")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+    }, 700);
+}
+
+
+function completeDay12() {
+
+    document.getElementById("day12Message").innerHTML += `
+
+        <div class="day12-complete">
+
+            <h2>🥹❤️</h2>
+
+            <p>
+                Another little memory added to our story.
+            </p>
+
+            <p>
+                <strong>
+                    See you tomorrow, Tana. ❤️
+                </strong>
+            </p>
+
+        </div>
+    `;
+}
+// ===============================
+// DAY 13 - FUTURE WITH YOU
+// ===============================
+
+let day13Choice = "";
+
+function startDay13Game() {
+    const game = document.getElementById("game");
+
+    game.innerHTML = `
+        <div class="day13-container">
+
+            <div class="day13-title">
+                💌 A Letter From Future Ankit 💌
+            </div>
+
+            <p class="day13-intro">
+                Tana... imagine we could see one moment from our future. ❤️
+                <br><br>
+                Which one would you choose?
+            </p>
+
+            <div class="day13-choices">
+
+                <button class="day13-choice"
+                    onclick="selectDay13('travel')">
+                    🌍 Travel Together
+                </button>
+
+                <button class="day13-choice"
+                    onclick="selectDay13('home')">
+                    🏠 Our First Home
+                </button>
+
+                <button class="day13-choice"
+                    onclick="selectDay13('proposal')">
+                    💍 The Day I Propose
+                </button>
+
+                <button class="day13-choice"
+                    onclick="selectDay13('old')">
+                    👴👵 Growing Old Together
+                </button>
+
+            </div>
+
+            <div id="day13-answer"></div>
+
+        </div>
+    `;
+}
+
+
+function selectDay13(choice) {
+
+    day13Choice = choice;
+
+    const answerBox = document.getElementById("day13-answer");
+
+    let message = "";
+
+    if (choice === "travel") {
+
+        message = `
+            <div class="day13-letter">
+                <div class="day13-letter-icon">🌍❤️</div>
+
+                <h2>Our Adventure</h2>
+
+                <p>
+                    Then pack your bags, Tana... ❤️
+                </p>
+
+                <p>
+                    I want to collect sunsets, crazy photos,
+                    new places, random adventures and countless
+                    memories with you. ✈️🥹
+                </p>
+
+                <p>
+                    Because honestly, any place becomes special
+                    when you're standing beside me. ❤️
+                </p>
+
+                <button onclick="showDay13Final()" class="day13-next">
+                    Continue ❤️
+                </button>
+            </div>
+        `;
+
+    } else if (choice === "home") {
+
+        message = `
+            <div class="day13-letter">
+                <div class="day13-letter-icon">🏠❤️</div>
+
+                <h2>Our Little Home</h2>
+
+                <p>
+                    Our little home... ❤️
+                </p>
+
+                <p>
+                    Jahan fights bhi hongi, bakchodi bhi,
+                    random hugs bhi, late-night talks bhi...
+                    aur sabse important —
+                    <b>YOU and ME.</b> 🥹❤️
+                </p>
+
+                <p>
+                    A place that doesn't have to be perfect,
+                    as long as you're there. 🏠❤️
+                </p>
+
+                <button onclick="showDay13Final()" class="day13-next">
+                    Continue ❤️
+                </button>
+            </div>
+        `;
+
+    } else if (choice === "proposal") {
+
+        message = `
+            <div class="day13-letter">
+                <div class="day13-letter-icon">💍❤️</div>
+
+                <h2>That Day...</h2>
+
+                <p>
+                    That day... I'll finally get down on one knee,
+                    look into your eyes and ask you the question
+                    I've been carrying in my heart for so long. 🥹
+                </p>
+
+                <p>
+                    And hopefully you'll already know the answer. ❤️
+                </p>
+
+                <button onclick="showDay13Final()" class="day13-next">
+                    Continue ❤️
+                </button>
+            </div>
+        `;
+
+    } else if (choice === "old") {
+
+        message = `
+            <div class="day13-letter">
+                <div class="day13-letter-icon">👴👵❤️</div>
+
+                <h2>Our Whole Journey</h2>
+
+                <p>
+                    Honestly, this one hits different... ❤️
+                </p>
+
+                <p>
+                    Because I don't just want beautiful moments
+                    with you.
+                </p>
+
+                <p>
+                    I want the whole journey —
+                    the good days, stupid fights, laughter,
+                    adventures and everything in between.
+                    With you. 🥹❤️
+                </p>
+
+                <button onclick="showDay13Final()" class="day13-next">
+                    Continue ❤️
+                </button>
+            </div>
+        `;
+    }
+
+    answerBox.innerHTML = message;
+}
+
+
+function showDay13Final() {
+
+    const game = document.getElementById("game");
+
+    game.innerHTML = `
+        <div class="day13-final">
+
+            <div class="day13-big-heart">
+                ❤️
+            </div>
+
+            <h1>Whatever You Choose...</h1>
+
+            <p>
+                I want every single one of those moments with you. ❤️
+            </p>
+
+            <p>
+                Because my favourite future isn't a place
+                or a moment...
+            </p>
+
+            <p class="day13-highlight">
+                It's simply YOU being there. 🥹❤️
+            </p>
+
+            <div class="day13-divider">
+                💗 💗 💗
+            </div>
+
+            <p>
+                And one day, I will come down on one knee,
+                propose to you in front of the world
+                and ask you to make me yours...
+            </p>
+
+            <h2>
+                Forever. 💍❤️
+            </h2>
+
+            <p class="day13-final-line">
+                One day...
+                <br>
+                not long distance.
+                <br>
+                Just us.
+                <br><br>
+                <b>FOREVER TOGETHER. ❤️</b>
+            </p>
+
+            <button onclick="completeDay13()" class="day13-finish">
+                ❤️ I LOVE YOU TANA ❤️
+            </button>
+
+        </div>
+    `;
+}
+
+
+function completeDay13() {
+
+    const game = document.getElementById("game");
+
+    game.innerHTML += `
+        <div class="day13-completed">
+            <p>
+                Day 13 completed. ❤️
+            </p>
+
+            <p>
+                Now go smile, Tana. 😌❤️
+            </p>
+
+            <p>
+                — Your Ankit ❤️
+            </p>
         </div>
     `;
 }
