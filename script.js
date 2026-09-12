@@ -5029,7 +5029,7 @@ function completeDay13() {
 
     const game = document.getElementById("game");
 
-    game.innerHTML += `
+    game.innerHTML += 
         <div class="day13-completed">
             <p>
                 Day 13 completed. ❤️
@@ -5043,5 +5043,5 @@ function completeDay13() {
                 — Your Ankit ❤️
             </p>
         </div>
-    `;
+    ;
 }
