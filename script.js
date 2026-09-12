@@ -13,7 +13,7 @@
 
 // true = testing mode
 // false = real September dates
-const TEST_MODE = true;
+const TEST_MODE = false;
 
 // Testing ke liye yahan day number change karo:
 // 1 = September 1
@@ -21,7 +21,7 @@ const TEST_MODE = true;
 // ...
 // 19 = September 19
 
-const TEST_DAY = 13;
+const TEST_DAY = 1;
 
 const START_DATE =
     new Date("2026-09-01T00:00:00+05:30");
