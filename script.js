@@ -21,7 +21,7 @@ const TEST_MODE = true;
 // ...
 // 19 = September 19
 
-const TEST_DAY = 10;
+const TEST_DAY = 13;
 
 const START_DATE =
     new Date("2026-09-01T00:00:00+05:30");
@@ -4794,7 +4794,7 @@ function completeDay12() {
 let day13Choice = "";
 
 function startDay13Game() {
-    const game = document.getElementById("game");
+    const game = document.getElementById("gameArea");
 
     game.innerHTML = `
         <div class="day13-container">
@@ -4968,7 +4968,7 @@ function selectDay13(choice) {
 
 function showDay13Final() {
 
-    const game = document.getElementById("game");
+    const game = document.getElementById("gameArea");
 
     game.innerHTML = `
         <div class="day13-final">
@@ -5027,9 +5027,9 @@ function showDay13Final() {
 
 function completeDay13() {
 
-    const game = document.getElementById("game");
+    const game = document.getElementById("gameArea");
 
-    game.innerHTML += 
+    game.innerHTML += `
         <div class="day13-completed">
             <p>
                 Day 13 completed. ❤️
@@ -5043,5 +5043,5 @@ function completeDay13() {
                 — Your Ankit ❤️
             </p>
         </div>
-    ;
+    `;
 }
